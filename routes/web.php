@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/comments/{word}', [MessageController::class, 'comment']);
+Route::get('/comments/freeword/{word}', [MessageController::class, 'freeword']);
+Route::get('/comments/random', [MessageController::class, 'random']);
